@@ -89,6 +89,6 @@ while tst != 1:
                  sys.exit()
 
     except ValueError:
-        "1Kérem csak a megadott menüpontokból válasszon!"
+        "Kérem csak a megadott menüpontokból válasszon!"
     sleep(5)
 sys.exit()
