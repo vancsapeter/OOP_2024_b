@@ -1,8 +1,8 @@
 import datetime
 import random
 
-from test.classes import *
-from test.classes import BelfoldiJegyek, NemzetkoziJarat, BelfoldiJarat
+from pythonProject.test.classes import *
+from pythonProject.test.classes import BelfoldiJegyek, NemzetkoziJarat, BelfoldiJarat
 
 
 def init_lt():
@@ -26,7 +26,7 @@ def init_bf_jegyek(input_bf, input_capacity):
     x: int
     y: int
     for x in range(len(input_bf)):
-        temp = ""
+
         for y in range(input_capacity):
             temp = str(input_bf[x].get_number())
             # print(temp)
@@ -42,7 +42,7 @@ def init_nf_jegyek(input_nf, input_capacity):
     x: int
     y: int
     for x in range(len(input_nf)):
-        temp = ""
+
         for y in range(input_capacity):
             temp = str(input_nf[x].get_number())
             # print(temp)
@@ -121,10 +121,10 @@ def date_validation(_date):
         print("Nem megfelelő a formátum!")
         x = 0
     elif int(_date[5:7])>12 or int(_date[5:7])<1:
-        print("Nem megfelelő a formátum!")
+        print("Hibás dátum!")
         x = 0
-    elif int(_date[5:7])<1:
-        print("Nem megfelelő a formátum!")
+    elif int(_date[8:10])<1:
+        print("Hibás dátum!")
         x = 0
     elif int(_date[5:7])==2 and int(_date[8:10])>30:
         print("Hibás dátum!")
@@ -136,6 +136,9 @@ def date_validation(_date):
         print("Hibás dátum!")
         x = 0
     elif int(_date[5:7]) not in [1,3,5,7,8,10,12] and int(_date[8:10])>30:
+        print("Hibás dátum!")
+        x = 0
+    elif int(_date[5:7]) in [1,3,5,7,8,10,12] and int(_date[8:10])>31:
         print("Hibás dátum!")
         x = 0
     else:
@@ -201,8 +204,7 @@ def get_booked_nf_jegyek(_nf_jegyek):
     return return_nf_jegyek
 
 def checking_flightnumber(_flightnumber,_bf,_nf):
-    i = 0
-    j = 0
+
     for i in range(len(_bf)):
         # print(_flightnumber, str(_bf[i].get_number()))
         if _flightnumber==str(_bf[i].get_number()): return 1
@@ -230,3 +232,17 @@ def booking_ticket(_jegysorszam,_jegyek):
         if _jegyek[i].get_ticket_number() == _jegysorszam:
             _jegyek[i].set_available(0)
     return _jegyek
+
+def print_flight(_bf,_nf):
+    print("Belföldi járatok:")
+
+    for i in range(len(_bf)):
+        print("Légitársaság: " + _bf[i].get_name() + " Járatszám: " + str(
+            _bf[i].get_number()) + " Célállomás: " + _bf[i].get_destination() + " Ár: " + str(
+            _bf[i].get_price()) + "€\n")
+    print("Nemzetközi járatok:")
+
+    for j in range(len(_nf)):
+        print("Légitársaság: " + _nf[j].get_name() + " Járatszám: " + str(
+            _nf[j].get_number()) + " Célállomás: " + _nf[j].get_destination() + " Ár: " + str(
+            _nf[j].get_price()) + "€\n")

@@ -162,10 +162,6 @@ class NemzetkoziJegyek(NemzetkoziJarat):  # A járatok foglalásához szüksége
     def get_tp(self):
         return self._tp
 
-# class NemzetkoziJegyfoglalas(NemzetkoziJegyek):
-#     def __init__(self, name, number, destination, price, , tp, ticket_number, available):
-#         super().__init__(name, number, destination, price, tp, ticket_number, available)
-
 class BelfoldiJegyek(BelfoldiJarat):  # A járatok foglalásához szükséges osztály, amely egy utazásra szóló jegy foglalását tárolja.
     def __init__(self, name, number, destination, price,tp, ticket_number, available):
         super().__init__(name, number, destination, price,tp)
@@ -220,18 +216,3 @@ class BelfoldiJegyek(BelfoldiJarat):  # A járatok foglalásához szükséges os
 
     def get_tp(self):
         return self._tp
-
-
-# class BelfoldiJegyfoglalas(BelfoldiJegyek):
-#     def __init__(self, name, number, destination, price, NumOfPieces, tp, available):
-#         super().__init__(name, number, destination, price, tp, NumOfPieces)
-
-    # def get_number(self):
-    #     return self._number
-    #
-    # def get_available(self):
-    #     return self._available
-    #
-    # def set_available(self, available):
-    #     self._available = available
-    #     return self
