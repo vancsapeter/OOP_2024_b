@@ -6,7 +6,7 @@ from pythonProject.test.classes import *
 from pythonProject.test.methods import init_lt, init_bf, init_bf_jegyek, init_nf, booking_bf_jegyek, init_nf_jegyek, \
     booking_nf_jegyek, print_booked_jegyek, checking_ticketid, get_booked_nf_jegyek, \
     get_booked_bf_jegyek, delete_bookedticket, menu, date_validation, checking_flightnumber, checking_available_ticket, \
-    select_first_available_ticket, booking_ticket
+    select_first_available_ticket, booking_ticket, print_flight
 
 # Inícializálás # egy légitársaság, 3 járat és 6 foglalás
 
